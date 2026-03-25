@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Меренга F1 - семена огурца Seminis, ранний 37 дн</title>
+  <style>
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #333;
+      background: #f5f5f5;
+      line-height: 1.5;
+    }
+
+    /* Prototype banner */
+    .proto-banner {
+      background: #fff3cd;
+      border-bottom: 3px solid #ffc107;
+      padding: 16px 24px;
+      font-family: Arial, sans-serif;
+    }
+    .proto-banner__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #856404;
+      margin-bottom: 8px;
+    }
+    .proto-banner__line {
+      font-size: 13px;
+      color: #856404;
+      margin-bottom: 4px;
+    }
+    .proto-banner__line strong { font-weight: 700; }
+
+    /* Header */
+    .header {
+      background: #4a7c2f;
+      padding: 12px 0;
+    }
+    .header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header__logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .header__nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 24px;
+      opacity: 0.9;
+    }
+    .header__nav a:hover { opacity: 1; text-decoration: underline; }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      background: #fff;
+    }
+    .page-bg {
+      background: #fff;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      padding: 12px 0;
+      font-size: 13px;
+      color: #888;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .breadcrumbs a {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover { text-decoration: underline; }
+    .breadcrumbs span { color: #999; margin: 0 6px; }
+
+    /* Product top */
+    .product-top {
+      display: flex;
+      gap: 32px;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+    .product-photo {
+      flex: 0 0 40%;
+      max-width: 40%;
+    }
+    .product-photo img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+    .product-photo__placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    .product-info {
+      flex: 1;
+      min-width: 280px;
+    }
+    .product-info h1 {
+      font-size: 23px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .product-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e65100;
+      margin-bottom: 16px;
+    }
+    .product-meta {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .product-meta strong {
+      color: #333;
+      min-width: 130px;
+      display: inline-block;
+    }
+    .btn-cart {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 32px;
+      background: #4a7c2f;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-cart:hover { background: #3d6a26; }
+
+    /* Tabs (pure CSS with radio buttons) */
+    .tabs {
+      margin-top: 8px;
+      border-top: 1px solid #e0e0e0;
+    }
+    .tabs input[type="radio"] {
+      display: none;
+    }
+    .tabs__nav {
+      display: flex;
+      border-bottom: 2px solid #e0e0e0;
+      background: #fafafa;
+    }
+    .tabs__nav label {
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #555;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tabs__nav label:hover {
+      color: #4a7c2f;
+    }
+    .tab-panel {
+      display: none;
+      padding: 24px 0;
+    }
+
+    /* Active tab styles */
+    #tab-desc:checked ~ .tabs__nav label[for="tab-desc"],
+    #tab-chars:checked ~ .tabs__nav label[for="tab-chars"],
+    #tab-faq:checked ~ .tabs__nav label[for="tab-faq"] {
+      color: #4a7c2f;
+      border-bottom-color: #4a7c2f;
+    }
+    #tab-desc:checked ~ #panel-desc,
+    #tab-chars:checked ~ #panel-chars,
+    #tab-faq:checked ~ #panel-faq {
+      display: block;
+    }
+
+    /* Content styling */
+    .content-area h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #222;
+      margin: 24px 0 12px 0;
+    }
+    .content-area h2:first-child {
+      margin-top: 0;
+    }
+    .content-area h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin: 18px 0 8px 0;
+    }
+    .content-area p {
+      margin-bottom: 14px;
+      line-height: 1.7;
+      color: #333;
+    }
+    .content-area ul, .content-area ol {
+      margin: 0 0 14px 24px;
+      line-height: 1.7;
+    }
+    .content-area li {
+      margin-bottom: 6px;
+    }
+    .content-area table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .content-area table th {
+      background: #4a7c2f;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .content-area table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .content-area table tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+    .content-area table tr:nth-child(odd) td {
+      background: #fff;
+    }
+
+    /* Characteristics table */
+    .chars-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .chars-table th {
+      background: #4a7c2f;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .chars-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .chars-table tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+    .chars-table tr:nth-child(odd) td {
+      background: #fff;
+    }
+    .chars-table td:first-child {
+      font-weight: 600;
+      color: #444;
+      width: 40%;
+    }
+
+    /* FAQ */
+    .faq-section {
+      margin-top: 0;
+      padding: 16px;
+      background: #f0f7f0;
+      border-left: 4px solid #4a7c2f;
+      border-radius: 4px;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      color: #222;
+      margin: 0 0 4px 0;
+    }
+    .faq-badge {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .faq-item {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #cde0cd;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #aaa;
+      padding: 20px 0;
+      margin-top: 0;
+      font-size: 13px;
+    }
+    .footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .product-top {
+        flex-direction: column;
+      }
+      .product-photo {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .tabs__nav label {
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Prototype Banner -->
+  <div class="proto-banner">
+    <div class="proto-banner__title">ПРОТОТИП — НЕ ОПУБЛИКОВАНО</div>
+    <div class="proto-banner__line"><strong>Новый Title (51 сим.):</strong> Меренга F1 - семена огурца Seminis, ранний 37 дн</div>
+    <div class="proto-banner__line"><strong>Новый Description (147 сим.):</strong> Семена огурца Меренга F1 (Seminis) - ранний партенокарпик 37-40 дн, 90-100 г, до 15,2 кг/м² в теплице. Профупаковка. Доставка по РФ. Оптовые цены.</div>
+    <div class="proto-banner__line"><strong>Контент:</strong> 350 слов | <strong>FAQ:</strong> 3 вопросов</div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header__inner">
+      <a href="https://agroopt-market.ru" class="header__logo">АГРООПТ</a>
+      <nav class="header__nav">
+        <a href="#">Каталог</a>
+        <a href="#">Доставка</a>
+        <a href="#">Оплата</a>
+        <a href="#">Контакты</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-bg">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="https://agroopt-market.ru">Главная</a>
+        <span>&rsaquo;</span>
+        <a href="#">Огурец</a>
+        <span>&rsaquo;</span>
+        Меренга F1
+      </div>
+
+      <!-- Product Top: Photo + Info -->
+      <div class="product-top">
+        <div class="product-photo">
+          <img src="https://static.insales-cdn.com/images/products/1/4121/735096857/Меренга_F1_7.jpg" alt="Меренга F1" style="width:100%;height:auto;border:1px solid #e0e0e0;border-radius:4px;">
+        </div>
+        <div class="product-info">
+          <h1>Меренга F1</h1>
+          <div class="product-price">Цена по запросу</div>
+          <div class="product-meta"><strong>Производитель:</strong> Seminis</div>
+          <div class="product-meta"><strong>Культура:</strong> Огурец</div>
+          <a href="#" class="btn-cart">В корзину</a>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <input type="radio" name="tabs" id="tab-desc" checked>
+        <input type="radio" name="tabs" id="tab-chars">
+        <input type="radio" name="tabs" id="tab-faq">
+
+        <div class="tabs__nav">
+          <label for="tab-desc">Описание</label>
+          <label for="tab-chars">Характеристики</label>
+          <label for="tab-faq">FAQ</label>
+        </div>
+
+        <div id="panel-desc" class="tab-panel content-area">
+          <p>Меренга — огурец раннего срока созревания от Seminis, партенокарпический гибрид F1 с пучковой завязью до 4-7 зеленцов в узле. Гибрид созревает за 37-40 дней и подходит для плёночных теплиц, временных укрытий и открытого грунта. Урожайность в плёночных укрытиях — 15,2 кг/м². Меренга F1 востребована фермерскими хозяйствами за дружную раннюю отдачу и генетическое отсутствие горечи.</p>
+
+<h2>Характеристики Меренги F1</h2>
+<table>
+  <tr><th>Параметр</th><th>Значение</th></tr>
+  <tr><td>Срок созревания</td><td>37-40 дней</td></tr>
+  <tr><td>Масса плода</td><td>90-100 г</td></tr>
+  <tr><td>Длина плода</td><td>10-13 см</td></tr>
+  <tr><td>Урожайность</td><td>15,2 кг/м² (плёночные укрытия)</td></tr>
+  <tr><td>Тип растения</td><td>Партенокарпический, индетерминантный, сильнорослый</td></tr>
+  <tr><td>Завязь</td><td>Пучковая, до 4-7 зеленцов в узле</td></tr>
+  <tr><td>Устойчивость</td><td>CMV (HR), Ccu (HR), Px (IR)</td></tr>
+  <tr><td>Назначение</td><td>Свежее потребление, засолка, консервирование</td></tr>
+  <tr><td>Схема посадки</td><td>40 x 40 см, не более 3 кустов на м²</td></tr>
+</table>
+
+<h2>Агротехника выращивания</h2>
+<p>Рассаду Меренга F1 высаживают в теплицу при температуре почвы +15°C, в открытый грунт — после минования возвратных заморозков. Схема посадки — 40 x 40 см, не более 3 растений на м². Растение сильнорослое, открытого типа с женским типом цветения. Формируют в один стебель с ослеплением нижних 3-4 узлов. Высокая регенерация побегов продлевает период плодоношения. Полив регулярный, тёплой водой под корень. Подкормки — каждые 10-14 дней комплексным удобрением с акцентом на калий и магний в период плодоношения. Зеленцы устойчивы к перерастанию, пожелтению и деформации. В защищённом грунте плодоношение продолжается 2-3 месяца при регулярном сборе каждые 2-3 дня. Для профилактики мучнистой росы (IR) и кладоспориоза (HR) хватает стандартных агротехнических мер: проветривание теплицы и удаление нижних листьев по мере отдачи урожая. Высокая устойчивость к CMV (HR) позволяет сократить число фунгицидных обработок.</p>
+
+<h2>Преимущества Меренги F1</h2>
+<ul>
+  <li>Урожайность до 15,2 кг/м² в плёночных теплицах</li>
+  <li>Пучковая завязь — 4-7 зеленцов в узле для дружного созревания</li>
+  <li>Генетическое отсутствие горечи, соотношение длина/ширина 3,2:1</li>
+  <li>Высокая устойчивость (HR) к CMV и кладоспориозу</li>
+  <li>Плоды не перерастают, не желтеют и не деформируются</li>
+</ul>
+
+<h2>Рекомендации по выращиванию</h2>
+<p>Меренга F1 включена в Госреестр с 2007 года, допущена во всех регионах РФ. Гибрид подходит для плёночных теплиц, временных укрытий и открытого грунта. Высокая экологическая пластичность позволяет получать стабильный урожай от юга до средней полосы. Плоды цилиндрические, тёмно-зелёные, крупнобугорчатые — для свежего рынка и переработки. Соотношение длины к ширине 3,2:1 — зеленцы соответствуют товарному стандарту для оптовых поставок. Генетическое отсутствие горечи сохраняется даже при нерегулярном поливе.</p>
+        </div>
+
+        <div id="panel-chars" class="tab-panel">
+          <p style="color:#888;">Характеристики не найдены</p>
+        </div>
+
+        <div id="panel-faq" class="tab-panel">
+              <div class="faq-section">
+      <h2>Часто задаваемые вопросы</h2>
+      <div class="faq-badge">Новый блок — сейчас отсутствует на сайте</div>
+      <div class="faq-item">
+        <div class="faq-q">В: Через сколько дней плодоносит Меренга F1?</div>
+        <div class="faq-a">Первый сбор зеленцов Меренга F1 — через 37-40 дней после всходов. Гибрид формирует пучковую завязь по 4-7 плодов в узле, поэтому урожай отдаётся дружно и рано. Масса зеленцов 90-100 г, длина 10-13 см.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">В: Какая урожайность Меренги F1 в теплице?</div>
+        <div class="faq-a">Урожайность Меренга F1 в плёночных укрытиях — 15,2 кг/м². Гибрид сильнорослый, с высокой регенерацией побегов, что продлевает период плодоношения. Растение открытого типа, женский тип цветения. Схема посадки — не более 3 кустов на м².</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">В: Сколько завязей в пучке у Меренги F1?</div>
+        <div class="faq-a">Меренга F1 формирует от 4 до 7 зеленцов в одном узле. Пучковая завязь даёт дружное созревание и высокую раннюю продуктивность. Плоды устойчивы к перерастанию и деформации — сохраняют товарный вид при задержке сбора.</div>
+      </div>
+    </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer__inner">
+      &copy; 2026 АГРООПТ | <a href="https://agroopt-market.ru">agroopt-market.ru</a> |
+      Этот прототип создан для согласования SEO-контента. Не является публичной страницей.
+    </div>
+  </div>
+
+</body>
+</html>

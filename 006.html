@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бьерн F1 - семена огурца Enza Zaden, ранний 37 дн</title>
+  <style>
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #333;
+      background: #f5f5f5;
+      line-height: 1.5;
+    }
+
+    /* Prototype banner */
+    .proto-banner {
+      background: #fff3cd;
+      border-bottom: 3px solid #ffc107;
+      padding: 16px 24px;
+      font-family: Arial, sans-serif;
+    }
+    .proto-banner__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #856404;
+      margin-bottom: 8px;
+    }
+    .proto-banner__line {
+      font-size: 13px;
+      color: #856404;
+      margin-bottom: 4px;
+    }
+    .proto-banner__line strong { font-weight: 700; }
+
+    /* Header */
+    .header {
+      background: #4a7c2f;
+      padding: 12px 0;
+    }
+    .header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header__logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .header__nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 24px;
+      opacity: 0.9;
+    }
+    .header__nav a:hover { opacity: 1; text-decoration: underline; }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      background: #fff;
+    }
+    .page-bg {
+      background: #fff;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      padding: 12px 0;
+      font-size: 13px;
+      color: #888;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .breadcrumbs a {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover { text-decoration: underline; }
+    .breadcrumbs span { color: #999; margin: 0 6px; }
+
+    /* Product top */
+    .product-top {
+      display: flex;
+      gap: 32px;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+    .product-photo {
+      flex: 0 0 40%;
+      max-width: 40%;
+    }
+    .product-photo img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+    .product-photo__placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    .product-info {
+      flex: 1;
+      min-width: 280px;
+    }
+    .product-info h1 {
+      font-size: 23px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .product-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e65100;
+      margin-bottom: 16px;
+    }
+    .product-meta {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .product-meta strong {
+      color: #333;
+      min-width: 130px;
+      display: inline-block;
+    }
+    .btn-cart {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 32px;
+      background: #4a7c2f;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-cart:hover { background: #3d6a26; }
+
+    /* Tabs (pure CSS with radio buttons) */
+    .tabs {
+      margin-top: 8px;
+      border-top: 1px solid #e0e0e0;
+    }
+    .tabs input[type="radio"] {
+      display: none;
+    }
+    .tabs__nav {
+      display: flex;
+      border-bottom: 2px solid #e0e0e0;
+      background: #fafafa;
+    }
+    .tabs__nav label {
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #555;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tabs__nav label:hover {
+      color: #4a7c2f;
+    }
+    .tab-panel {
+      display: none;
+      padding: 24px 0;
+    }
+
+    /* Active tab styles */
+    #tab-desc:checked ~ .tabs__nav label[for="tab-desc"],
+    #tab-chars:checked ~ .tabs__nav label[for="tab-chars"],
+    #tab-faq:checked ~ .tabs__nav label[for="tab-faq"] {
+      color: #4a7c2f;
+      border-bottom-color: #4a7c2f;
+    }
+    #tab-desc:checked ~ #panel-desc,
+    #tab-chars:checked ~ #panel-chars,
+    #tab-faq:checked ~ #panel-faq {
+      display: block;
+    }
+
+    /* Content styling */
+    .content-area h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #222;
+      margin: 24px 0 12px 0;
+    }
+    .content-area h2:first-child {
+      margin-top: 0;
+    }
+    .content-area h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin: 18px 0 8px 0;
+    }
+    .content-area p {
+      margin-bottom: 14px;
+      line-height: 1.7;
+      color: #333;
+    }
+    .content-area ul, .content-area ol {
+      margin: 0 0 14px 24px;
+      line-height: 1.7;
+    }
+    .content-area li {
+      margin-bottom: 6px;
+    }
+    .content-area table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .content-area table th {
+      background: #4a7c2f;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .content-area table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .content-area table tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+    .content-area table tr:nth-child(odd) td {
+      background: #fff;
+    }
+
+    /* Characteristics table */
+    .chars-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .chars-table th {
+      background: #4a7c2f;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .chars-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .chars-table tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+    .chars-table tr:nth-child(odd) td {
+      background: #fff;
+    }
+    .chars-table td:first-child {
+      font-weight: 600;
+      color: #444;
+      width: 40%;
+    }
+
+    /* FAQ */
+    .faq-section {
+      margin-top: 0;
+      padding: 16px;
+      background: #f0f7f0;
+      border-left: 4px solid #4a7c2f;
+      border-radius: 4px;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      color: #222;
+      margin: 0 0 4px 0;
+    }
+    .faq-badge {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .faq-item {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #cde0cd;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #aaa;
+      padding: 20px 0;
+      margin-top: 0;
+      font-size: 13px;
+    }
+    .footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .product-top {
+        flex-direction: column;
+      }
+      .product-photo {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .tabs__nav label {
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Prototype Banner -->
+  <div class="proto-banner">
+    <div class="proto-banner__title">ПРОТОТИП — НЕ ОПУБЛИКОВАНО</div>
+    <div class="proto-banner__line"><strong>Новый Title (52 сим.):</strong> Бьерн F1 - семена огурца Enza Zaden, ранний 37 дн</div>
+    <div class="proto-banner__line"><strong>Новый Description (149 сим.):</strong> Семена огурца Бьерн F1 (Enza Zaden) - ранний партенокарпик 37-42 дня, 100-120 г, свыше 20 кг/м² в теплице. Профупаковка. Доставка по РФ. Оптовые цены.</div>
+    <div class="proto-banner__line"><strong>Контент:</strong> 345 слов | <strong>FAQ:</strong> 3 вопросов</div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header__inner">
+      <a href="https://agroopt-market.ru" class="header__logo">АГРООПТ</a>
+      <nav class="header__nav">
+        <a href="#">Каталог</a>
+        <a href="#">Доставка</a>
+        <a href="#">Оплата</a>
+        <a href="#">Контакты</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-bg">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="https://agroopt-market.ru">Главная</a>
+        <span>&rsaquo;</span>
+        <a href="#">Огурец</a>
+        <span>&rsaquo;</span>
+        Бьерн F1
+      </div>
+
+      <!-- Product Top: Photo + Info -->
+      <div class="product-top">
+        <div class="product-photo">
+          <img src="https://static.insales-cdn.com/images/products/1/3493/1014336933/Бьерн_F1_семена_огурца_партенокарпического_Enza_Zaden_купить_оптом.jpg" alt="Бьерн F1" style="width:100%;height:auto;border:1px solid #e0e0e0;border-radius:4px;">
+        </div>
+        <div class="product-info">
+          <h1>Бьерн F1</h1>
+          <div class="product-price">Цена по запросу</div>
+          <div class="product-meta"><strong>Производитель:</strong> Enza Zaden</div>
+          <div class="product-meta"><strong>Культура:</strong> Огурец</div>
+          <a href="#" class="btn-cart">В корзину</a>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <input type="radio" name="tabs" id="tab-desc" checked>
+        <input type="radio" name="tabs" id="tab-chars">
+        <input type="radio" name="tabs" id="tab-faq">
+
+        <div class="tabs__nav">
+          <label for="tab-desc">Описание</label>
+          <label for="tab-chars">Характеристики</label>
+          <label for="tab-faq">FAQ</label>
+        </div>
+
+        <div id="panel-desc" class="tab-panel content-area">
+          <p>Огурцы Бьерн F1 от Enza Zaden — ранний партенокарпический гибрид букетного типа для фермерских и промышленных теплиц. Первый сбор зеленцов возможен через 37-42 дня после всходов. Урожайность в плёночных теплицах превышает 20 кг/м², в открытом грунте — 13-14 кг/м². Гибрид формирует 3-4 плода в каждой пазухе листа и отдаёт основную массу урожая на главном стебле.</p>
+
+<h2>Характеристики Бьерна F1</h2>
+<table>
+  <tr><th>Параметр</th><th>Значение</th></tr>
+  <tr><td>Срок созревания</td><td>37-42 дня</td></tr>
+  <tr><td>Масса плода</td><td>100-120 г</td></tr>
+  <tr><td>Длина плода</td><td>10-12 см</td></tr>
+  <tr><td>Урожайность</td><td>13-14 кг/м² (ОГ), свыше 20 кг/м² (теплица)</td></tr>
+  <tr><td>Тип растения</td><td>Партенокарпический, индетерминантный</td></tr>
+  <tr><td>Устойчивость</td><td>Ccu (HR), CMV (IR), CVYV (IR), Px (IR), CGMMV (IR)</td></tr>
+  <tr><td>Назначение</td><td>Салатный, засолка, консервирование</td></tr>
+  <tr><td>Плотность посадки</td><td>3-3,5 раст./м²</td></tr>
+</table>
+
+<h2>Агротехника выращивания</h2>
+<p>Рассаду Бьерн F1 высаживают в теплицу при прогреве почвы до +15°C. Рекомендуемая плотность — 3-3,5 растения на м². Растение сбалансированное, открытого типа, с короткими боковыми побегами. Медленное развитие боковых ветвей упрощает формирование: достаточно вести растение в один стебель с удалением пасынков в нижних 4-5 узлах. Полив — тёплой водой под корень, не допуская пересыхания почвы. Подкормки каждые 10-14 дней комплексным удобрением с преобладанием калия в фазу плодоношения. Высота растения — более 1,5 м. Зеленцы цилиндрические, тёмно-зелёные без светлых полос, крупнобугорчатые по всей длине. При сборе каждые 2-3 дня плоды сохраняют однородную форму и массу 100-120 г. Гибрид рекомендован для 1-го и 2-го оборота в плёночных теплицах. Стабильно завязывает плоды при перепадах температур и недостатке освещённости, что позволяет получать урожай с мая по сентябрь в средней полосе.</p>
+
+<h2>Преимущества Бьерна F1</h2>
+<ul>
+  <li>Урожайность свыше 20 кг/м² в тепличных условиях</li>
+  <li>Букетный тип цветения — 3-4 плода в каждом узле</li>
+  <li>Не бочкуется при перерастании, сохраняет товарный вид</li>
+  <li>Устойчивость к 5 заболеваниям, включая кладоспориоз (HR) и CMV (IR)</li>
+  <li>Стабильная завязь в стрессовых условиях — перепады температур, слабое освещение</li>
+</ul>
+
+<h2>Кому подойдёт Бьерн F1</h2>
+<p>Гибрид включён в Госреестр с 2015 года и допущен к использованию во всех регионах РФ. Бьерн F1 подходит фермерским хозяйствам и ЛПХ для выращивания в плёночных теплицах и под временными укрытиями. Плоды цилиндрические, тёмно-зелёные, крупнобугорчатые — востребованы как на свежем рынке, так и для переработки. Устойчивость к 5 заболеваниям (кладоспориоз HR, CMV, CVYV, Px, CGMMV — IR) снижает затраты на защиту и позволяет вести экологичное производство.</p>
+        </div>
+
+        <div id="panel-chars" class="tab-panel">
+              <table class="chars-table">
+      <tr><th>Параметр</th><th>Значение</th></tr>
+      <tr><td>1. Культура</td><td>Огурец п/к. короткоплодный бугорчатый</td></tr>
+      <tr><td>Производитель</td><td>Enza Zaden</td></tr>
+      <tr><td>Наименование сорта (гибрида)</td><td>БЬЕРН F1</td></tr>
+      <tr><td>Метка</td><td>Выбор покупателей!, Хит продаж</td></tr>
+      <tr><td>Подтип</td><td>Партенокарпический</td></tr>
+      <tr><td>Созревание (раннеспелость)</td><td>Раннеспелое</td></tr>
+      <tr><td>Сортотип</td><td>Партенокарпический</td></tr>
+      <tr><td>Грунт, способ выращивания</td><td>Для пленочных теплиц и открытого грунта</td></tr>
+      <tr><td>Масса плода</td><td>100-120 гр.</td></tr>
+      <tr><td>Форма плода</td><td>Зеленец короткий, цилиндрический, темно-зеленый, среднебугорчатый, слаборебристый с шипами</td></tr>
+      <tr><td>Размеры плода</td><td>10-12 см</td></tr>
+      <tr><td>Цвет плода</td><td>Темно-зеленый</td></tr>
+      <tr><td>Цвет мякоти</td><td>Бело-зеленоватый</td></tr>
+      <tr><td>Устойчивость</td><td>HR:Ccu IR:CMV/CVYV/Px</td></tr>
+      <tr><td>Растение</td><td>сбалансированное, открытое, с короткими боковыми побегами</td></tr>
+      <tr><td>Код (по Госреестру)</td><td>8558354</td></tr>
+      <tr><td>Год включения в Госреестр</td><td>2015</td></tr>
+      <tr><td>Регионы допуска (Госреестр)</td><td>Все регионы</td></tr>
+      <tr><td>Заказ семян</td><td>Уважаемый клиент, купить семена огурца Бьерн F1 в профупаковке 500 шт. (Enza Zaden | Энза Заден) с доставкой по России Вы можете в нашем интернет-магазине семян, оформив заказ. Также заказать профессиональные семена огурца Бьерн F1 оптом и в розницу от производителя можно, позвонив по указанным телефонам интернет-магазина семян нашей компании АГРООПТ.</td></tr>
+    </table>
+        </div>
+
+        <div id="panel-faq" class="tab-panel">
+              <div class="faq-section">
+      <h2>Часто задаваемые вопросы</h2>
+      <div class="faq-badge">Новый блок — сейчас отсутствует на сайте</div>
+      <div class="faq-item">
+        <div class="faq-q">В: Через сколько дней плодоносит огурец Бьерн F1?</div>
+        <div class="faq-a">Первый сбор зеленцов — через 37-42 дня после всходов. Гибрид букетного типа: в каждой пазухе листа формируется 3-4 плода. Основную массу урожая Бьерн F1 отдаёт на главном стебле, поэтому урожай отдаётся дружно и интенсивно.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">В: Какая урожайность Бьерна F1 в теплице?</div>
+        <div class="faq-a">В плёночных теплицах урожайность Бьерн F1 превышает 20 кг/м². В открытом грунте — 13-14 кг/м². Гибрид стабильно завязывает плоды даже при перепадах температур и недостатке освещённости, что гарантирует высокую отдачу в обоих оборотах.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">В: Сколько огурцов в пучке у Бьерна F1?</div>
+        <div class="faq-a">Бьерн F1 формирует 3-4 плода в каждой пазухе листа. Букетный тип цветения даёт дружное созревание. Зеленцы массой 100-120 г, длиной 10-12 см, цилиндрической формы. Плоды не бочкуются при перерастании.</div>
+      </div>
+    </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer__inner">
+      &copy; 2026 АГРООПТ | <a href="https://agroopt-market.ru">agroopt-market.ru</a> |
+      Этот прототип создан для согласования SEO-контента. Не является публичной страницей.
+    </div>
+  </div>
+
+</body>
+</html>

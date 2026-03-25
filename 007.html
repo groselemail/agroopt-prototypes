@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Герман F1 - семена огурца Seminis, ранний 38 дн</title>
+  <style>
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #333;
+      background: #f5f5f5;
+      line-height: 1.5;
+    }
+
+    /* Prototype banner */
+    .proto-banner {
+      background: #fff3cd;
+      border-bottom: 3px solid #ffc107;
+      padding: 16px 24px;
+      font-family: Arial, sans-serif;
+    }
+    .proto-banner__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #856404;
+      margin-bottom: 8px;
+    }
+    .proto-banner__line {
+      font-size: 13px;
+      color: #856404;
+      margin-bottom: 4px;
+    }
+    .proto-banner__line strong { font-weight: 700; }
+
+    /* Header */
+    .header {
+      background: #4a7c2f;
+      padding: 12px 0;
+    }
+    .header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header__logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .header__nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 24px;
+      opacity: 0.9;
+    }
+    .header__nav a:hover { opacity: 1; text-decoration: underline; }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      background: #fff;
+    }
+    .page-bg {
+      background: #fff;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      padding: 12px 0;
+      font-size: 13px;
+      color: #888;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .breadcrumbs a {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover { text-decoration: underline; }
+    .breadcrumbs span { color: #999; margin: 0 6px; }
+
+    /* Product top */
+    .product-top {
+      display: flex;
+      gap: 32px;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+    .product-photo {
+      flex: 0 0 40%;
+      max-width: 40%;
+    }
+    .product-photo img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+    .product-photo__placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    .product-info {
+      flex: 1;
+      min-width: 280px;
+    }
+    .product-info h1 {
+      font-size: 23px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .product-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e65100;
+      margin-bottom: 16px;
+    }
+    .product-meta {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .product-meta strong {
+      color: #333;
+      min-width: 130px;
+      display: inline-block;
+    }
+    .btn-cart {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 32px;
+      background: #4a7c2f;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-cart:hover { background: #3d6a26; }
+
+    /* Tabs (pure CSS with radio buttons) */
+    .tabs {
+      margin-top: 8px;
+      border-top: 1px solid #e0e0e0;
+    }
+    .tabs input[type="radio"] {
+      display: none;
+    }
+    .tabs__nav {
+      display: flex;
+      border-bottom: 2px solid #e0e0e0;
+      background: #fafafa;
+    }
+    .tabs__nav label {
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #555;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tabs__nav label:hover {
+      color: #4a7c2f;
+    }
+    .tab-panel {
+      display: none;
+      padding: 24px 0;
+    }
+
+    /* Active tab styles */
+    #tab-desc:checked ~ .tabs__nav label[for="tab-desc"],
+    #tab-chars:checked ~ .tabs__nav label[for="tab-chars"],
+    #tab-faq:checked ~ .tabs__nav label[for="tab-faq"] {
+      color: #4a7c2f;
+      border-bottom-color: #4a7c2f;
+    }
+    #tab-desc:checked ~ #panel-desc,
+    #tab-chars:checked ~ #panel-chars,
+    #tab-faq:checked ~ #panel-faq {
+      display: block;
+    }
+
+    /* Content styling */
+    .content-area h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #222;
+      margin: 24px 0 12px 0;
+    }
+    .content-area h2:first-child {
+      margin-top: 0;
+    }
+    .content-area h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin: 18px 0 8px 0;
+    }
+    .content-area p {
+      margin-bottom: 14px;
+      line-height: 1.7;
+      color: #333;
+    }
+    .content-area ul, .content-area ol {
+      margin: 0 0 14px 24px;
+      line-height: 1.7;
+    }
+    .content-area li {
+      margin-bottom: 6px;
+    }
+    .content-area table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .content-area table th {
+      background: #4a7c2f;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .content-area table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .content-area table tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+    .content-area table tr:nth-child(odd) td {
+      background: #fff;
+    }
+
+    /* Characteristics table */
+    .chars-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .chars-table th {
+      background: #4a7c2f;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .chars-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .chars-table tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+    .chars-table tr:nth-child(odd) td {
+      background: #fff;
+    }
+    .chars-table td:first-child {
+      font-weight: 600;
+      color: #444;
+      width: 40%;
+    }
+
+    /* FAQ */
+    .faq-section {
+      margin-top: 0;
+      padding: 16px;
+      background: #f0f7f0;
+      border-left: 4px solid #4a7c2f;
+      border-radius: 4px;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      color: #222;
+      margin: 0 0 4px 0;
+    }
+    .faq-badge {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .faq-item {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #cde0cd;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #aaa;
+      padding: 20px 0;
+      margin-top: 0;
+      font-size: 13px;
+    }
+    .footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .product-top {
+        flex-direction: column;
+      }
+      .product-photo {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .tabs__nav label {
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Prototype Banner -->
+  <div class="proto-banner">
+    <div class="proto-banner__title">ПРОТОТИП — НЕ ОПУБЛИКОВАНО</div>
+    <div class="proto-banner__line"><strong>Новый Title (50 сим.):</strong> Герман F1 - семена огурца Seminis, ранний 38 дн</div>
+    <div class="proto-banner__line"><strong>Новый Description (148 сим.):</strong> Семена огурца Герман F1 (Seminis) - суперранний партенокарпик 38-40 дн, 70-90 г, до 7 завязей в узле. Профупаковка. Доставка по РФ. Закажите оптом!</div>
+    <div class="proto-banner__line"><strong>Контент:</strong> 402 слов | <strong>FAQ:</strong> 4 вопросов</div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header__inner">
+      <a href="https://agroopt-market.ru" class="header__logo">АГРООПТ</a>
+      <nav class="header__nav">
+        <a href="#">Каталог</a>
+        <a href="#">Доставка</a>
+        <a href="#">Оплата</a>
+        <a href="#">Контакты</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-bg">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="https://agroopt-market.ru">Главная</a>
+        <span>&rsaquo;</span>
+        <a href="#">Огурец</a>
+        <span>&rsaquo;</span>
+        Герман F1
+      </div>
+
+      <!-- Product Top: Photo + Info -->
+      <div class="product-top">
+        <div class="product-photo">
+          <img src="https://static.insales-cdn.com/images/products/1/1817/2619541273/Герман_F1_семена_огурца_партенокарпического_Seminis_купить_семена.jpg" alt="Герман F1" style="width:100%;height:auto;border:1px solid #e0e0e0;border-radius:4px;">
+        </div>
+        <div class="product-info">
+          <h1>Герман F1</h1>
+          <div class="product-price">Цена по запросу</div>
+          <div class="product-meta"><strong>Производитель:</strong> Seminis</div>
+          <div class="product-meta"><strong>Культура:</strong> Огурец</div>
+          <a href="#" class="btn-cart">В корзину</a>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <input type="radio" name="tabs" id="tab-desc" checked>
+        <input type="radio" name="tabs" id="tab-chars">
+        <input type="radio" name="tabs" id="tab-faq">
+
+        <div class="tabs__nav">
+          <label for="tab-desc">Описание</label>
+          <label for="tab-chars">Характеристики</label>
+          <label for="tab-faq">FAQ</label>
+        </div>
+
+        <div id="panel-desc" class="tab-panel content-area">
+          <p>Огурец Герман F1 от Seminis — суперранний партенокарпический гибрид с пучковым заложением завязей. Первые зеленцы снимают через 38-40 дней после всходов. Гибрид формирует 6-7 плодов в узле, плоды массой 70-90 г без генетической горечи. Герман F1 подходит фермерским хозяйствам, тепличным комбинатам и ЛПХ для свежего потребления, засолки и консервирования. Стабильная отдача урожая на протяжении всего периода вегетации.</p>
+
+<h2>Характеристики Германа F1</h2>
+<table>
+  <tr><th>Параметр</th><th>Значение</th></tr>
+  <tr><td>Срок созревания</td><td>38-40 дней</td></tr>
+  <tr><td>Масса плода</td><td>70-90 г</td></tr>
+  <tr><td>Длина плода</td><td>10-11 см</td></tr>
+  <tr><td>Диаметр плода</td><td>3-3,5 см</td></tr>
+  <tr><td>Урожайность</td><td>8,5-9 кг/м²</td></tr>
+  <tr><td>Тип растения</td><td>Партенокарпический, сильнорослый</td></tr>
+  <tr><td>Устойчивость</td><td>CMV, Px (мучнистая роса), Ccu (кладоспориоз)</td></tr>
+  <tr><td>Назначение</td><td>Свежее потребление, засолка, консервирование</td></tr>
+</table>
+
+<h2>Агротехника выращивания</h2>
+<p>Рассаду Герман F1 высаживают при прогреве почвы до +15°C: в теплицы — с середины апреля, в открытый грунт — в конце мая. Плотность посадки: 20-25 тыс. растений на гектар при вертикальном выращивании шпалерным способом, 45-50 тыс. — при горизонтальном расстиле. Растение вегетативного типа с пучковым формированием плодов. Ведут в один стебель с ослеплением нижних 4 узлов. Выше пасынки прищипывают на 1-2 листа. Рекомендуемый оборот — зимне-весенний. Подкормки каждые 10-14 дней, полив тёплой водой утром. Гибрид теневынослив: стабильная отдача урожая на протяжении всего периода вегетации даже при дефиците света. В период активного плодоношения расход воды — 4-5 л на растение в сутки. При капельном поливе частота подкормок сохраняется, но концентрацию раствора снижают на 20-30%. Плоды без генетической горечи — даже при нерегулярном поливе вкус не страдает. Для профилактики корневых гнилей грунт мульчируют соломой или перлитом слоем 3-5 см.</p>
+
+<h2>Преимущества Германа F1</h2>
+<ul>
+  <li>Суперраннее созревание — 38-40 дней от всходов до первого сбора</li>
+  <li>Пучковое заложение — до 6-7 завязей в одном узле</li>
+  <li>Генетическое отсутствие горечи в плодах</li>
+  <li>Устойчивость к CMV, мучнистой росе (Px) и кладоспориозу (Ccu)</li>
+  <li>Теневыносливость — стабильная завязь при слабом освещении</li>
+  <li>Плоды с белым опушением, соотношение длины к толщине 3,3:1 — товарный стандарт для оптовых поставок</li>
+  <li>Рекомендован для зимне-весеннего оборота — ранний выход продукции на рынок</li>
+</ul>
+
+<h2>Где выращивать Герман F1</h2>
+<p>Герман F1 хорошо проявляет себя в плёночных теплицах и под временными укрытиями. Рекомендован для зимне-весеннего оборота. Плоды цилиндрические, крупнобугорчатые, с белым опушением и соотношением длины к толщине 3,3:1. Зеленцы массой 70-90 г подходят для свежего потребления, засолки и консервирования. Генетическое отсутствие горечи гарантирует стабильное качество даже при нерегулярном поливе. При вертикальном выращивании шпалерным способом высаживают 20-25 тыс. растений на гектар, при горизонтальном расстиле — 45-50 тыс. растений. Высокий спрос на Герман F1 подтверждают 254 отзыва покупателей на сайте — это лидер среди огурцов по числу оценок. Суперраннее созревание за 38-40 дней позволяет занять рынок раньше конкурентов.</p>
+        </div>
+
+        <div id="panel-chars" class="tab-panel">
+              <table class="chars-table">
+      <tr><th>Параметр</th><th>Значение</th></tr>
+      <tr><td>1. Культура</td><td>Огурец п/к. короткоплодный бугорчатый</td></tr>
+      <tr><td>Производитель</td><td>Seminis</td></tr>
+      <tr><td>Наименование сорта (гибрида)</td><td>ГЕРМАН F1</td></tr>
+      <tr><td>Метка</td><td>Акция!, Выбор покупателей!, Хит продаж</td></tr>
+      <tr><td>Подтип</td><td>Партенокарпический</td></tr>
+      <tr><td>Созревание (раннеспелость)</td><td>Раннеспелое</td></tr>
+      <tr><td>Сортотип</td><td>Партенокарпический</td></tr>
+      <tr><td>Вегетативный срок, дней</td><td>38-40</td></tr>
+      <tr><td>Грунт, способ выращивания</td><td>Открытый грунт</td></tr>
+      <tr><td>Норма высева, Га</td><td>вертикальное производство: 20-25.000 растений/га; горизонтальное производство: 45-50.000 растений/га.</td></tr>
+      <tr><td>Назначение</td><td>Для потребления в свежем виде</td></tr>
+      <tr><td>Масса плода</td><td>70-90 гр</td></tr>
+      <tr><td>Форма плода</td><td>Зеленец цилиндрической формы, зеленый до темно-зеленого, с короткими полосами и слабовыраженной пятнистостью, ребристый, бугорчатый, бугорки среднего размера, средней плотности, опушение белое</td></tr>
+      <tr><td>Размеры плода</td><td>10-11 см</td></tr>
+      <tr><td>Цвет плода</td><td>Зеленый, темно-зеленый</td></tr>
+      <tr><td>Цвет мякоти</td><td>Бело-зеленоватый</td></tr>
+      <tr><td>Устойчивость</td><td>Устойчив к кладоспориозу, вирусу огуречной мозаики, мучнистой росе</td></tr>
+      <tr><td>Растение</td><td>Сильнорослое, открытое, с женским типом цветения</td></tr>
+      <tr><td>Посев</td><td>Зима, Весна</td></tr>
+      <tr><td>Оборот</td><td>Светокультура, Летне-осенний</td></tr>
+      <tr><td>Уборка</td><td>Отдельными плодами</td></tr>
+      <tr><td>Код (по Госреестру)</td><td>9908206</td></tr>
+      <tr><td>Год включения в Госреестр</td><td>2001</td></tr>
+      <tr><td>Регионы допуска (Госреестр)</td><td>Все регионы</td></tr>
+    </table>
+        </div>
+
+        <div id="panel-faq" class="tab-panel">
+              <div class="faq-section">
+      <h2>Часто задаваемые вопросы</h2>
+      <div class="faq-badge">Новый блок — сейчас отсутствует на сайте</div>
+      <div class="faq-item">
+        <div class="faq-q">В: Нужно ли формировать огурец Герман F1?</div>
+        <div class="faq-a">Герман F1 ведут в один стебель. Нижние 4 узла ослепляют — удаляют все пасынки и завязи. Выше дают боковым побегам расти свободно. Растение вегетативного типа с пучковым формированием: в каждом узле закладывается 6-7 завязей, так что загущать посадку не нужно.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">В: Какая урожайность Германа F1 в открытом грунте?</div>
+        <div class="faq-a">Товарная урожайность Герман F1 — 8,5-9 кг/м². Гибрид суперраннего срока: первый сбор через 38-40 дней после всходов. Плоды массой 70-90 г, длиной 10-11 см, без горечи. Плотность посадки в открытом грунте — 45-50 тыс. растений на гектар при горизонтальном ведении.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">В: Устойчив ли Герман F1 к мучнистой росе?</div>
+        <div class="faq-a">Герман F1 устойчив к мучнистой росе (Px), вирусу мозаики огурца (CMV) и кладоспориозу (Ccu). Три устойчивости в комплексе снижают потребность в фунгицидных обработках. Это позволяет сократить затраты на защиту и получить продукцию с минимальной пестицидной нагрузкой.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">В: Какой размер плодов у Германа F1?</div>
+        <div class="faq-a">Зеленцы Герман F1 — 10-11 см длиной, диаметр 3-3,5 см, масса 70-90 г. Соотношение длины к толщине 3,3:1. Плоды цилиндрические, крупнобугорчатые, с белым опушением, без горечи. Подходят для свежего потребления, засолки и консервирования.</div>
+      </div>
+    </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer__inner">
+      &copy; 2026 АГРООПТ | <a href="https://agroopt-market.ru">agroopt-market.ru</a> |
+      Этот прототип создан для согласования SEO-контента. Не является публичной страницей.
+    </div>
+  </div>
+
+</body>
+</html>

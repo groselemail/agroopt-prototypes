@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каристан F1 - семена арбуза Syngenta, 9-14 кг</title>
+  <style>
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #333;
+      background: #f5f5f5;
+      line-height: 1.5;
+    }
+
+    /* Prototype banner */
+    .proto-banner {
+      background: #fff3cd;
+      border-bottom: 3px solid #ffc107;
+      padding: 16px 24px;
+      font-family: Arial, sans-serif;
+    }
+    .proto-banner__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #856404;
+      margin-bottom: 8px;
+    }
+    .proto-banner__line {
+      font-size: 13px;
+      color: #856404;
+      margin-bottom: 4px;
+    }
+    .proto-banner__line strong { font-weight: 700; }
+
+    /* Header */
+    .header {
+      background: #4a7c2f;
+      padding: 12px 0;
+    }
+    .header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header__logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .header__nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 24px;
+      opacity: 0.9;
+    }
+    .header__nav a:hover { opacity: 1; text-decoration: underline; }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      background: #fff;
+    }
+    .page-bg {
+      background: #fff;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      padding: 12px 0;
+      font-size: 13px;
+      color: #888;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .breadcrumbs a {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+    .breadcrumbs a:hover { text-decoration: underline; }
+    .breadcrumbs span { color: #999; margin: 0 6px; }
+
+    /* Product top */
+    .product-top {
+      display: flex;
+      gap: 32px;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+    .product-photo {
+      flex: 0 0 40%;
+      max-width: 40%;
+    }
+    .product-photo img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+    .product-photo__placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    .product-info {
+      flex: 1;
+      min-width: 280px;
+    }
+    .product-info h1 {
+      font-size: 23px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .product-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e65100;
+      margin-bottom: 16px;
+    }
+    .product-meta {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .product-meta strong {
+      color: #333;
+      min-width: 130px;
+      display: inline-block;
+    }
+    .btn-cart {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 32px;
+      background: #4a7c2f;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-cart:hover { background: #3d6a26; }
+
+    /* Tabs (pure CSS with radio buttons) */
+    .tabs {
+      margin-top: 8px;
+      border-top: 1px solid #e0e0e0;
+    }
+    .tabs input[type="radio"] {
+      display: none;
+    }
+    .tabs__nav {
+      display: flex;
+      border-bottom: 2px solid #e0e0e0;
+      background: #fafafa;
+    }
+    .tabs__nav label {
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #555;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tabs__nav label:hover {
+      color: #4a7c2f;
+    }
+    .tab-panel {
+      display: none;
+      padding: 24px 0;
+    }
+
+    /* Active tab styles */
+    #tab-desc:checked ~ .tabs__nav label[for="tab-desc"],
+    #tab-chars:checked ~ .tabs__nav label[for="tab-chars"],
+    #tab-faq:checked ~ .tabs__nav label[for="tab-faq"] {
+      color: #4a7c2f;
+      border-bottom-color: #4a7c2f;
+    }
+    #tab-desc:checked ~ #panel-desc,
+    #tab-chars:checked ~ #panel-chars,
+    #tab-faq:checked ~ #panel-faq {
+      display: block;
+    }
+
+    /* Content styling */
+    .content-area h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #222;
+      margin: 24px 0 12px 0;
+    }
+    .content-area h2:first-child {
+      margin-top: 0;
+    }
+    .content-area h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin: 18px 0 8px 0;
+    }
+    .content-area p {
+      margin-bottom: 14px;
+      line-height: 1.7;
+      color: #333;
+    }
+    .content-area ul, .content-area ol {
+      margin: 0 0 14px 24px;
+      line-height: 1.7;
+    }
+    .content-area li {
+      margin-bottom: 6px;
+    }
+    .content-area table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .content-area table th {
+      background: #4a7c2f;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .content-area table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .content-area table tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+    .content-area table tr:nth-child(odd) td {
+      background: #fff;
+    }
+
+    /* Characteristics table */
+    .chars-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .chars-table th {
+      background: #4a7c2f;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .chars-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .chars-table tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+    .chars-table tr:nth-child(odd) td {
+      background: #fff;
+    }
+    .chars-table td:first-child {
+      font-weight: 600;
+      color: #444;
+      width: 40%;
+    }
+
+    /* FAQ */
+    .faq-section {
+      margin-top: 0;
+      padding: 16px;
+      background: #f0f7f0;
+      border-left: 4px solid #4a7c2f;
+      border-radius: 4px;
+    }
+    .faq-section h2 {
+      font-size: 20px;
+      color: #222;
+      margin: 0 0 4px 0;
+    }
+    .faq-badge {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .faq-item {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #cde0cd;
+    }
+    .faq-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #aaa;
+      padding: 20px 0;
+      margin-top: 0;
+      font-size: 13px;
+    }
+    .footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .product-top {
+        flex-direction: column;
+      }
+      .product-photo {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      .tabs__nav label {
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Prototype Banner -->
+  <div class="proto-banner">
+    <div class="proto-banner__title">ПРОТОТИП — НЕ ОПУБЛИКОВАНО</div>
+    <div class="proto-banner__line"><strong>Новый Title (50 сим.):</strong> Каристан F1 - семена арбуза Syngenta, 9-14 кг</div>
+    <div class="proto-banner__line"><strong>Новый Description (144 сим.):</strong> Семена арбуза Каристан F1 (Syngenta) - 62-64 дня от рассады, плоды 9-14 кг, урожайность до 80 т/га. BRIX до 7.7%. Доставка по РФ. Закажите оптом!</div>
+    <div class="proto-banner__line"><strong>Контент:</strong> 340 слов | <strong>FAQ:</strong> 3 вопросов</div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header__inner">
+      <a href="https://agroopt-market.ru" class="header__logo">АГРООПТ</a>
+      <nav class="header__nav">
+        <a href="#">Каталог</a>
+        <a href="#">Доставка</a>
+        <a href="#">Оплата</a>
+        <a href="#">Контакты</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-bg">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="https://agroopt-market.ru">Главная</a>
+        <span>&rsaquo;</span>
+        <a href="#">Арбуз</a>
+        <span>&rsaquo;</span>
+        Каристан F1
+      </div>
+
+      <!-- Product Top: Photo + Info -->
+      <div class="product-top">
+        <div class="product-photo">
+          <img src="https://static.insales-cdn.com/images/products/1/7774/411795038/Каристан_арбуз_сингента__33.jpg" alt="Каристан F1" style="width:100%;height:auto;border:1px solid #e0e0e0;border-radius:4px;">
+        </div>
+        <div class="product-info">
+          <h1>Каристан F1</h1>
+          <div class="product-price">Цена по запросу</div>
+          <div class="product-meta"><strong>Производитель:</strong> Syngenta</div>
+          <div class="product-meta"><strong>Культура:</strong> Арбуз</div>
+          <a href="#" class="btn-cart">В корзину</a>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <input type="radio" name="tabs" id="tab-desc" checked>
+        <input type="radio" name="tabs" id="tab-chars">
+        <input type="radio" name="tabs" id="tab-faq">
+
+        <div class="tabs__nav">
+          <label for="tab-desc">Описание</label>
+          <label for="tab-chars">Характеристики</label>
+          <label for="tab-faq">FAQ</label>
+        </div>
+
+        <div id="panel-desc" class="tab-panel content-area">
+          <p>Каристан — арбуз типа Кримсон Свит, раннеспелый гибрид F1 от Syngenta для товарного производства. Плоды набирают 9-14 кг за 62-64 дня от высадки рассады. Мякоть красная, хрустящая, с содержанием сахара BRIX 6.4-7.7%. Гибрид устойчив к антракнозу и фузариозному увяданию — подходит для промышленных бахчевых хозяйств юга России.</p>
+
+<h2>Характеристики Каристан F1</h2>
+<table>
+<tr><th>Параметр</th><th>Значение</th></tr>
+<tr><td>Срок созревания</td><td>62-64 дня от высадки рассады (80-82 дня от посева)</td></tr>
+<tr><td>Масса плода</td><td>9-14 кг (10-12 кг по каталогу)</td></tr>
+<tr><td>Урожайность</td><td>70-80 т/га</td></tr>
+<tr><td>Форма плода</td><td>Широкоэллиптический (овальный), тёмно-зелёный с широкими полосками</td></tr>
+<tr><td>Мякоть</td><td>Красная до тёмно-красной, хрустящая, очень сладкая</td></tr>
+<tr><td>Содержание сахара</td><td>BRIX 6.4-7.7%, сухое вещество 7.5-8.7%</td></tr>
+<tr><td>Устойчивость</td><td>Антракноз (Co: раса 1), фузариоз (Fon: расы 0, 1), солнечные ожоги, растрескивание</td></tr>
+<tr><td>Норма высева</td><td>6 500-7 000 семян/га</td></tr>
+</table>
+
+<h2>Агротехника выращивания</h2>
+<p>Рассаду Каристан F1 выращивают 25-30 дней перед высадкой в грунт. Высадка — при прогреве почвы до +15 °C на глубине 10 см. Норма высева 6 500-7 000 семян/га. Растение мощное, со средней силой роста, устойчивое к жаре. Ботва хорошо защищает плоды от солнечных ожогов — критично для южных регионов. Полив капельный, прекращают за 7-10 дней до уборки для набора сахара. Гибрид отличает высокий выход товарной продукции и отличная завязываемость.</p>
+
+<h2>Преимущества Каристан F1</h2>
+<ul>
+<li>Урожайность 70-80 т/га — высокий потенциал для товарного бахчеводства</li>
+<li>Содержание сахара BRIX до 7.7% — сладкая хрустящая мякоть с мелкими семенами</li>
+<li>Устойчивость к антракнозу (Co: раса 1) и фузариозу (Fon: расы 0, 1) — снижает нагрузку фунгицидами</li>
+<li>Тонкая до средней кора, отличная транспортабельность и лёжкость</li>
+<li>Повышенная устойчивость к солнечным ожогам — плоды не горят на бахче</li>
+</ul>
+
+<p>Каристан F1 — арбуз для промышленных бахчевых хозяйств и фермеров, работающих на свежий рынок. Гибрид стабильно работает в южных регионах РФ. Рекомендован для выращивания в открытом грунте, также возможна культура под плёночными укрытиями.</p>
+<p>Рассаду выращивают 25-30 дней, высаживают при прогреве почвы до +15 °C на глубине 10 см. Кора тонкая до средней толщины — выдерживает транспортировку на дальние расстояния без повреждений. Семена мелкие, чёрные. Мякоть плотная по структуре, красная до тёмно-красной. Сухое вещество 7.5-8.7%. Каристан F1 — лидер на рынке арбузов России по соотношению урожайности и товарных качеств.</p>
+        </div>
+
+        <div id="panel-chars" class="tab-panel">
+              <table class="chars-table">
+      <tr><th>Параметр</th><th>Значение</th></tr>
+      <tr><td>1. Культура</td><td>Арбуз красный</td></tr>
+      <tr><td>Производитель</td><td>Syngenta</td></tr>
+      <tr><td>Наименование сорта (гибрида)</td><td>КАРИСТАН F1</td></tr>
+      <tr><td>Метка</td><td>Хит продаж</td></tr>
+      <tr><td>Созревание (раннеспелость)</td><td>Раннеспелое</td></tr>
+      <tr><td>Вегетативный срок, дней</td><td>62-64 от высадки рассады, 80-82 от посева</td></tr>
+      <tr><td>Назначение</td><td>Товарное производство</td></tr>
+      <tr><td>Форма плода</td><td>Плод овальной формы,</td></tr>
+      <tr><td>Цвет плода</td><td>Цвет ов темно-зеленый с широкими полосками</td></tr>
+      <tr><td>Цвет мякоти</td><td>Красный до темно-красного, средней плотности до плотной</td></tr>
+      <tr><td>Устойчивость</td><td>Устойчив к фузариозу и антракнозу</td></tr>
+      <tr><td>Сохранность</td><td>Сохраняет товарные качества в течение 14 дней после съема</td></tr>
+      <tr><td>Растение</td><td>Сильное растение: отличная завязываемость, повышенная устойчивость к солнечным ожогам</td></tr>
+      <tr><td>Код (по Госреестру)</td><td>9253455</td></tr>
+      <tr><td>Год включения в Госреестр</td><td>2012</td></tr>
+      <tr><td>Регионы допуска (Госреестр)</td><td>Нижневолжский, Уральский</td></tr>
+      <tr><td>Заказ семян</td><td>Уважаемый клиент, купить семена арбуза Каристан F1 в профупаковке 1000 шт. (Syngenta | Сингента) с доставкой по России Вы можете в нашем интернет-магазине семян, оформив заказ. Также заказать профессиональные семена арбуза Каристан F1 оптом и в розницу от производителя можно, позвонив по указанным телефонам интернет-магазина семян нашей компании АГРООПТ.</td></tr>
+      <tr><td>Прочее</td><td>Срок хранения: Непродолжительный</td></tr>
+    </table>
+        </div>
+
+        <div id="panel-faq" class="tab-panel">
+              <div class="faq-section">
+      <h2>Часто задаваемые вопросы</h2>
+      <div class="faq-badge">Новый блок — сейчас отсутствует на сайте</div>
+      <div class="faq-item">
+        <div class="faq-q">В: Какой срок созревания арбуза Каристан F1?</div>
+        <div class="faq-a">Каристан F1 созревает за 62-64 дня от высадки рассады или 80-82 дня от посева. Гибрид относится к раннеспелой группе типа Кримсон Свит. Плоды овальной формы набирают массу 9-14 кг. Норма высева — 6 500-7 000 семян/га.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">В: Какая средняя масса арбуза Каристан F1?</div>
+        <div class="faq-a">Средняя масса плода Каристан F1 — 10-12 кг по каталогу Syngenta, в поле — от 9 до 14 кг в зависимости от агротехники. Мякоть красная до тёмно-красной, хрустящая. Семена мелкие, чёрные. Кора тонкая до средней толщины — выдерживает транспортировку.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">В: Какое содержание сахара у Каристана F1?</div>
+        <div class="faq-a">Содержание сахара по шкале BRIX — 6.4-7.7%, общее сухое вещество 7.5-8.7%. Мякоть очень сладкая и плотная по структуре. Для набора максимальной сахаристости полив прекращают за 7-10 дней до уборки. Каристан F1 стабильно показывает высокий BRIX в условиях юга России.</div>
+      </div>
+    </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer__inner">
+      &copy; 2026 АГРООПТ | <a href="https://agroopt-market.ru">agroopt-market.ru</a> |
+      Этот прототип создан для согласования SEO-контента. Не является публичной страницей.
+    </div>
+  </div>
+
+</body>
+</html>
