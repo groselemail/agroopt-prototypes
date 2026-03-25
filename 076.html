@@ -193,14 +193,12 @@
 
     /* Active tab styles */
     #tab-desc:checked ~ .tabs__nav label[for="tab-desc"],
-    #tab-chars:checked ~ .tabs__nav label[for="tab-chars"],
-    #tab-faq:checked ~ .tabs__nav label[for="tab-faq"] {
+    #tab-chars:checked ~ .tabs__nav label[for="tab-chars"] {
       color: #4a7c2f;
       border-bottom-color: #4a7c2f;
     }
     #tab-desc:checked ~ #panel-desc,
-    #tab-chars:checked ~ #panel-chars,
-    #tab-faq:checked ~ #panel-faq {
+    #tab-chars:checked ~ #panel-chars {
       display: block;
     }
 
@@ -289,7 +287,7 @@
 
     /* FAQ */
     .faq-section {
-      margin-top: 0;
+      margin-top: 32px;
       padding: 16px;
       background: #f0f7f0;
       border-left: 4px solid #4a7c2f;
@@ -415,12 +413,10 @@
       <div class="tabs">
         <input type="radio" name="tabs" id="tab-desc" checked>
         <input type="radio" name="tabs" id="tab-chars">
-        <input type="radio" name="tabs" id="tab-faq">
 
         <div class="tabs__nav">
           <label for="tab-desc">Описание</label>
           <label for="tab-chars">Характеристики</label>
-          <label for="tab-faq">FAQ</label>
         </div>
 
         <div id="panel-desc" class="tab-panel content-area">
@@ -454,13 +450,7 @@
 
 <h2>Рекомендации по выращиванию</h2>
 <p>Меренга F1 включена в Госреестр с 2007 года, допущена во всех регионах РФ. Гибрид подходит для плёночных теплиц, временных укрытий и открытого грунта. Высокая экологическая пластичность позволяет получать стабильный урожай от юга до средней полосы. Плоды цилиндрические, тёмно-зелёные, крупнобугорчатые — для свежего рынка и переработки. Соотношение длины к ширине 3,2:1 — зеленцы соответствуют товарному стандарту для оптовых поставок. Генетическое отсутствие горечи сохраняется даже при нерегулярном поливе.</p>
-        </div>
 
-        <div id="panel-chars" class="tab-panel">
-          <p style="color:#888;">Характеристики не найдены</p>
-        </div>
-
-        <div id="panel-faq" class="tab-panel">
               <div class="faq-section">
       <h2>Часто задаваемые вопросы</h2>
       <div class="faq-badge">Новый блок — сейчас отсутствует на сайте</div>
@@ -477,6 +467,10 @@
         <div class="faq-a">Меренга F1 формирует от 4 до 7 зеленцов в одном узле. Пучковая завязь даёт дружное созревание и высокую раннюю продуктивность. Плоды устойчивы к перерастанию и деформации — сохраняют товарный вид при задержке сбора.</div>
       </div>
     </div>
+        </div>
+
+        <div id="panel-chars" class="tab-panel">
+          <p style="color:#888;">Характеристики не найдены</p>
         </div>
       </div>
 
